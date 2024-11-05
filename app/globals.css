@@ -3,19 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #9787ff;
+  --hover: #705aff;
+  --secondary: #c6bdff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.btn{
+  @apply bg-[--primary] text-white px-3 py-1 rounded-md cursor-pointer transition-all hover:bg-[--hover]
 }
