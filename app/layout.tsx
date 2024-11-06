@@ -21,9 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${comfortaa.className} antialiased`}>
-        <Header />
-        <div style={{minHeight:'calc(100vh - 72px)'}}>{children}</div>
+      <body
+        className={`${comfortaa.className} antialiased`}
+      >
+        <Header/>
+        {children}
       </body>
     </html>
   );

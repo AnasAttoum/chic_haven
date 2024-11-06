@@ -1,23 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function LogIn() {
+export default function SignUp() {
   return (
     <div className="flex justify-between items-center smallPage">
       <div className="flex justify-center w-full lg:w-2/3">
         <div className="flex flex-col items-center gap-10 w-full md:w-2/3 p-5 lg:ms-10">
           <div className="flex flex-col gap-3">
             <div className="text-3xl font-extrabold">
-              Welcome back to{" "}
-              <span className="text-[--primary]">Chic Haven</span>
+              Ready to start your adventure in style?
             </div>
             <div className="text-gray-500">
-              Log in to access your account, browse your favorite items, and
-              continue your shopping journey.
+              Sign up to our website and start shopping in seconds with our
+              quick and easy checkout process!
             </div>
           </div>
 
           <form className="flex flex-col gap-7 w-full">
+            <div className="flex flex-col">
+              <label htmlFor="name">Full Name :</label>
+              <input id="name" type="text" className="input" required />
+            </div>
+
             <div className="flex flex-col">
               <label htmlFor="email">Email address :</label>
               <input id="email" type="text" className="input" required />
@@ -29,14 +33,14 @@ export default function LogIn() {
             </div>
 
             <button type="submit" className="btn">
-              Log In
+              Sign Up
             </button>
           </form>
 
           <div className="text-sm text-gray-500">
-            Don’t have an acoount?{" "}
-            <Link href={"/signup"} className="text-[--primary] underline">
-              Sign Up
+            Do you have an acoount?{" "}
+            <Link href={"/login"} className="text-[--primary] underline">
+              Log In
             </Link>
           </div>
         </div>

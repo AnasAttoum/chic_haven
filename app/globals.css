@@ -15,3 +15,7 @@
 .input{
   @apply border-2 w-full border-gray-600 p-2 rounded-md focus:border-2 focus:border-[--hover] focus:outline-none
 }
+
+.smallPage{
+  min-height: calc(100vh - 72px);
+}
