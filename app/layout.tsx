@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
+import { comfortaa } from "./ui/fonts";
 
 
 export const metadata: Metadata = {
@@ -20,11 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={` antialiased`}
-      >
-        <Header/>
-        {children}
+      <body className={`${comfortaa.className} antialiased`}>
+        <Header />
+        <div style={{height:'calc(100vh - 72px)'}}>{children}</div>
       </body>
     </html>
   );

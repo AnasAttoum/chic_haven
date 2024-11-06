@@ -11,9 +11,9 @@ export default function Header() {
 
   return (
     <div className="flex justify-around items-center gap-10 py-5">
-      <div className={`${satisfy.className} antialiased text-2xl`}>
+      <Link href={'/'} className={`${satisfy.className} antialiased text-2xl`}>
         Chic Haven
-      </div>
+      </Link>
 
       <div className="flex justify-center gap-5">
         {auth ? (
@@ -30,9 +30,9 @@ export default function Header() {
           })
         ) : (
           <>
-            <div className="btn">
+            <Link href={'/login'} className="btn">
               Log In
-            </div>
+            </Link>
           </>
         )}
       </div>

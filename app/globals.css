@@ -11,3 +11,7 @@
 .btn{
   @apply bg-[--primary] text-white px-3 py-1 rounded-md cursor-pointer transition-all hover:bg-[--hover]
 }
+
+.input{
+  @apply border-2 w-full border-gray-600 p-2 rounded-md focus:border-2 focus:border-[--hover] focus:outline-none
+}
