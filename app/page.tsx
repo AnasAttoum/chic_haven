@@ -5,10 +5,8 @@ import CardProduct from "@/components/CardProduct";
 import { getProducts } from "./_serverActions/getProducts";
 import { product } from "@/types/types";
 
-
 export default async function Home() {
-
-  const products = await getProducts()
+  const products = await getProducts();
 
   return (
     <>
@@ -55,13 +53,16 @@ export default async function Home() {
         </div>
       </div>
 
-      <Title title="Featured Products" />
-
-      <div className="flex flex-wrap justify-center gap-5 p-5">
-        {products.map((product:product)=>{
-          return <CardProduct key={product.id} product={product} />
-        })}
-      </div>
+      {products && Array.isArray(products) ? (
+        <>
+          <Title title="Featured Products" />
+          <div className="flex flex-wrap justify-center gap-5 p-5">
+            {products.map((product: product) => {
+              return <CardProduct key={product.id} product={product} />;
+            })}
+          </div>
+        </>
+      ) : null}
     </>
   );
 }
