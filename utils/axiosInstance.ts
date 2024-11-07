@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const axiosInstance = axios.create({
-  baseURL: process.env.BACKEND_SERVER,
+  baseURL: process.env.NEXT_PUBLIC_BACKEND_SERVER,
 });
 
 axiosInstance.interceptors.request.use(
