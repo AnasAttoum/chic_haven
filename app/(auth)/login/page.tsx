@@ -45,7 +45,6 @@ export default function LogIn() {
       <div className="hidden lg:inline-block w-1/3">
         <Image
           src={"/images/joinUs.png"}
-          layout="responsive"
           width={700}
           height={475}
           alt="Chic Haven"

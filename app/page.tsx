@@ -2,16 +2,20 @@ import Image from "next/image";
 
 import Title from "@/components/Title";
 import CardProduct from "@/components/CardProduct";
+import { getProducts } from "./_serverActions/getProducts";
+import { product } from "@/types/types";
 
 
-export default function Home() {
+export default async function Home() {
+
+  const products = await getProducts()
+
   return (
     <>
       <div className="flex max-md:flex-col max-md:items-center justify-center md:justify-between bg-[--secondary] p-5 smallPage">
         <div className="max-md:hidden w-3/12 lg:w-3/12">
           <Image
             src={"/images/lampHeader.svg"}
-            layout="responsive"
             width={700}
             height={475}
             alt="Chic Haven - Lamp"
@@ -44,7 +48,6 @@ export default function Home() {
         <div className="flex items-center w-8/12 sm:w-6/12 md:w-3/12 lg:w-4/12">
           <Image
             src={"/images/sofaHeader.svg"}
-            layout="responsive"
             width={700}
             height={475}
             alt="Chic Haven - Sofa"
@@ -54,11 +57,10 @@ export default function Home() {
 
       <Title title="Featured Products" />
 
-      <div className="flex justify-center gap-5 p-5">
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
-        <CardProduct />
+      <div className="flex flex-wrap justify-center gap-5 p-5">
+        {products.map((product:product)=>{
+          return <CardProduct key={product.id} product={product} />
+        })}
       </div>
     </>
   );
