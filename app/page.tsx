@@ -7,7 +7,6 @@ import { product } from "@/types/types";
 
 export default async function Home() {
   const products = await getProducts();
-  console.log("🚀 ~ Home ~ products:", products)
 
   return (
     <>
