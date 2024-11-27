@@ -1,43 +1,42 @@
 "use client";
 
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
 export default function LogIn() {
   const [errorFormBackend, setErrorFromBackend] = useState("");
   const [submitBtn, setSubmitBtn] = useState("Log In");
+  const router= useRouter();
 
   const handleLogIn = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitBtn("Loading...");
     setErrorFromBackend("");
+
     const formData = new FormData(e.currentTarget);
     const email= formData.get('email')
     const password= formData.get('password')
-    try {
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
 
-      const data = await response.json();
+    const result = await signIn('credentials', {
+      redirect: false,
+      email,
+      password,
+    });
 
-      if (response.ok) {
-        console.log("🚀 ~ LogIn ~ result:", data);
-      } else {
-        throw new Error(data.message || "Login failed");
-      }
-    } catch (error: any) {
-      setErrorFromBackend(
-        error.message === "Unauthorized"
-          ? "Invalid Email or Password"
-          : error.message
-      );
+    if (result?.error) {
+      setErrorFromBackend("Invalid email or password");
+    } else {
+      router.replace('/'); 
     }
+    
+      // setErrorFromBackend(
+      //   error.message === "Unauthorized"
+      //     ? "Invalid Email or Password"
+      //     : error.message
+      // );
 
     setSubmitBtn("Log In");
   };
