@@ -2,7 +2,6 @@ import NextAuth, { SessionStrategy } from "next-auth";
 import { axiosInstance } from "@/utils/axiosInstance";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-export const BASE_PATH = "/api/auth";
 
 export const authOptions = {
   providers: [
@@ -41,7 +40,6 @@ export const authOptions = {
       },
     }),
   ],
-  basePath: BASE_PATH,
   pages: {
     signIn: "/auth/login", // Point to your custom sign-in page
   },
