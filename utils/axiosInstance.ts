@@ -6,7 +6,8 @@ export const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
     (config)=>{
-        config.headers.Authorization="Bearer ";
+        config.headers["Content-Type"] = "application/json";
+        config.headers.Authorization = "Bearer ";
         return config;
     },
     (error) => {
