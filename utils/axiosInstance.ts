@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const axiosInstance = axios.create({
-  baseURL: "https://api.escuelajs.co/api/v1/",
+  baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
 });
 
 axiosInstance.interceptors.request.use(
