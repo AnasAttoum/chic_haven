@@ -88,7 +88,7 @@ export default function LogIn() {
 
           <div className="text-sm text-gray-500">
             Don’t have an acoount?{" "}
-            <Link href={"/signup"} className="text-[--primary] underline">
+            <Link href={"/auth/signup"} className="text-[--primary] underline">
               Sign Up
             </Link>
           </div>
