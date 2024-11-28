@@ -3,12 +3,13 @@
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
 export default function LogIn() {
   const [errorFormBackend, setErrorFromBackend] = useState("");
   const [submitBtn, setSubmitBtn] = useState("Log In");
+  const router= useRouter();
 
   const handleLogIn = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,7 +29,7 @@ export default function LogIn() {
     if (result?.error) {
       setErrorFromBackend("Invalid email or password");
     } else {
-      redirect('/')
+      router.refresh()
     }
     
       // setErrorFromBackend(
