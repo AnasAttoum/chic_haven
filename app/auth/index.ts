@@ -45,4 +45,20 @@ export const authOptions = {
     strategy: "jwt" as SessionStrategy,
   },
   secret: process.env.NEXTAUTH_SECRET,
+  callbacks: {
+    async jwt({ token, user }: any) {
+      // Include user information in the token if available
+      if (user) {
+        token.access_token = user.access_token; // Include token if needed
+      }
+      return token;
+    },
+    async session({ session, token }: any) {
+      // Populate session with user data from the token
+      session.user = {
+        access_token: token.access_token,
+      };
+      return session;
+    },
+  },
 };

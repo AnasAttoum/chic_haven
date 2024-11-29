@@ -30,7 +30,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="flex justify-between sm:justify-around max-sm:px-5 items-center gap-10 py-5">
+      <div className="flex justify-between max-sm:px-5 items-center gap-10 px-16 py-5">
         <Link
           href={"/"}
           className={`${satisfy.className} antialiased text-2xl`}
@@ -39,7 +39,7 @@ export default function Header() {
         </Link>
 
         <div style={status === "loading" ? { visibility: "hidden" } : {}}>
-          {auth ? (
+          {auth && (
             <>
               <div className="flex justify-center items-center gap-5 max-sm:hidden">
                 {links.map(({ name, url }) => {
@@ -75,13 +75,7 @@ export default function Header() {
                 ></path>
               </svg>
             </>
-          ) : (
-            <>
-              <Link href={"/auth/login"} className="btn">
-                Log In
-              </Link>
-            </>
-          )}
+          ) }
         </div>
       </div>
 

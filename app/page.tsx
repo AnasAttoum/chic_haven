@@ -10,7 +10,7 @@ export default async function Home() {
 
   return (
     <>
-      <div className="flex max-md:flex-col max-md:items-center justify-center md:justify-between bg-[--secondary] p-5 smallPage">
+      <div className="flex max-md:flex-col max-md:items-center justify-center md:justify-between bg-[--secondary] py-5 md:py-0 px-5 smallPage">
         <div className="max-md:hidden w-3/12 lg:w-3/12">
           <Image
             src={"/images/lampHeader.svg"}

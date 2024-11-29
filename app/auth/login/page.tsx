@@ -1,5 +1,6 @@
 "use client";
 
+import { satisfy } from "@/app/ui/fonts";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -48,7 +49,11 @@ export default function LogIn() {
           <div className="flex flex-col gap-3">
             <div className="text-3xl font-extrabold">
               Welcome back to{" "}
-              <span className="text-[--primary]">Chic Haven</span>
+              <span
+                className={`${satisfy.className} antialiased text-[--primary]`}
+              >
+                Chic Haven
+              </span>
             </div>
             <div className="text-gray-500">
               Log in to access your account, browse your favorite items, and

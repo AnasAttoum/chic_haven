@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { comfortaa } from "./ui/fonts";
 import HeaderWrapper from "@/utils/HeaderWrapper";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./auth";
 
 
 export const metadata: Metadata = {
@@ -14,17 +16,16 @@ export const metadata: Metadata = {
   icons: "/chic_haven.svg",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const token = await getServerSession(authOptions);
   return (
     <html lang="en">
-      <body
-        className={`${comfortaa.className} antialiased`}
-      >
-        <HeaderWrapper/>
+      <body className={`${comfortaa.className} antialiased`}>
+        {!!token && <HeaderWrapper />}
         {children}
       </body>
     </html>

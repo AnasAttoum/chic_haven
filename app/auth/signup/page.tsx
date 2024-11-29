@@ -1,5 +1,6 @@
 "use client"
 
+import { satisfy } from "@/app/ui/fonts";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -33,26 +34,6 @@ export default function SignUp() {
       router.replace('/auth/login')
     else
       setErrorFromBackend(data.message)
-    // console.log(data.message)
-    
-
-    // const result = await signIn("credentials", {
-    //   redirect: false,
-    //   email,
-    //   password,
-    // });
-
-    // if (result?.error) {
-    //   setErrorFromBackend("Invalid email or password");
-    // } else {
-    //   router.refresh();
-    // }
-
-    // setErrorFromBackend(
-    //   error.message === "Unauthorized"
-    //     ? "Invalid Email or Password"
-    //     : error.message
-    // );
 
     setSubmitBtn("Sign Up");
   };
@@ -66,25 +47,49 @@ export default function SignUp() {
               Ready to start your adventure in style?
             </div>
             <div className="text-gray-500">
-              Sign up to our website and start shopping in seconds with our
-              quick and easy checkout process!
+              Sign up to{" "}
+              <span
+                className={`${satisfy.className} antialiased text-[--primary]`}
+              >
+                Chic Haven
+              </span>{" "}
+              and start shopping in seconds with our quick and easy checkout
+              process!
             </div>
           </div>
 
           <form onSubmit={handleSignUp} className="flex flex-col gap-7 w-full">
             <div className="flex flex-col">
               <label htmlFor="name">Full Name :</label>
-              <input id="name" name="name" type="text" className="input" required />
+              <input
+                id="name"
+                name="name"
+                type="text"
+                className="input"
+                required
+              />
             </div>
 
             <div className="flex flex-col">
               <label htmlFor="email">Email address :</label>
-              <input id="email" name="email" type="text" className="input" required />
+              <input
+                id="email"
+                name="email"
+                type="text"
+                className="input"
+                required
+              />
             </div>
 
             <div className="flex flex-col">
               <label htmlFor="password">Password :</label>
-              <input id="password" name="password" type="password" className="input" required />
+              <input
+                id="password"
+                name="password"
+                type="password"
+                className="input"
+                required
+              />
             </div>
 
             <div className="text-center text-red-500">{errorFormBackend}</div>
