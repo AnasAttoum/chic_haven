@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import Title from "@/components/Title";
 import CardProduct from "@/components/CardProduct";
-import { getProducts } from "./lib/data/getProducts";
+import { getProducts } from "../lib/data/getProducts";
 import { product } from "@/types/types";
 
 export default async function Home() {

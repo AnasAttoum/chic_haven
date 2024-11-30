@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { comfortaa } from "./ui/fonts";
+import { comfortaa } from "../utils/fonts";
 import HeaderWrapper from "@/utils/HeaderWrapper";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./auth";
 import StoreProvider from "@/utils/StoreProvider";
-import { getUser } from "./lib/data/getUser";
+import { getUser } from "../lib/data/getUser";
 import StoreUser from "@/utils/StoreUser";
 
 

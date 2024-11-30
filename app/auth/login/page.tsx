@@ -1,6 +1,6 @@
 "use client";
 
-import { satisfy } from "@/app/ui/fonts";
+import { satisfy } from "@/utils/fonts";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";

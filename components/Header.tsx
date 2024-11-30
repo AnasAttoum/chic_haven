@@ -1,6 +1,6 @@
 "use client";
 
-import { satisfy } from "@/app/ui/fonts";
+import { satisfy } from "@/utils/fonts";
 import { links } from "@/constants/data";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";

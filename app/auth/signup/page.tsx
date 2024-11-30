@@ -1,6 +1,6 @@
 "use client"
 
-import { satisfy } from "@/app/ui/fonts";
+import { satisfy } from "@/utils/fonts";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";

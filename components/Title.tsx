@@ -1,4 +1,4 @@
-import { satisfy } from "@/app/ui/fonts";
+import { satisfy } from "@/utils/fonts";
 
 export default function Title({ title }: { title: string }) {
   return (
