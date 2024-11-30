@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import Title from "@/components/Title";
 import CardProduct from "@/components/CardProduct";
-import { getProducts } from "./lib/getProducts";
+import { getProducts } from "./lib/data/getProducts";
 import { product } from "@/types/types";
 
 export default async function Home() {
@@ -17,6 +17,7 @@ export default async function Home() {
             width={700}
             height={475}
             alt="Chic Haven - Lamp"
+            priority
           />
         </div>
 
@@ -49,6 +50,7 @@ export default async function Home() {
             width={700}
             height={475}
             alt="Chic Haven - Sofa"
+            priority
           />
         </div>
       </div>

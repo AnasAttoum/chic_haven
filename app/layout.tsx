@@ -4,6 +4,9 @@ import { comfortaa } from "./ui/fonts";
 import HeaderWrapper from "@/utils/HeaderWrapper";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./auth";
+import StoreProvider from "@/utils/StoreProvider";
+import { getUser } from "./lib/data/getUser";
+import StoreUser from "@/utils/StoreUser";
 
 
 export const metadata: Metadata = {
@@ -22,12 +25,20 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const token = await getServerSession(authOptions);
+  let user = null
+  if(!!token){
+    user = await getUser();
+  }
+  
   return (
-    <html lang="en">
-      <body className={`${comfortaa.className} antialiased`}>
-        {!!token && <HeaderWrapper />}
-        {children}
-      </body>
-    </html>
+    <StoreProvider>
+      <html lang="en">
+        <body className={`${comfortaa.className} antialiased`}>
+          {!!token && <HeaderWrapper />}
+          {!!user && <StoreUser user={user} />}
+          {children}
+        </body>
+      </html>
+    </StoreProvider>
   );
 }

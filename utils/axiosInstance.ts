@@ -1,13 +1,22 @@
+import { authOptions } from "@/app/auth";
 import axios from "axios";
+import { getServerSession } from "next-auth";
 
 export const axiosInstance = axios.create({
   baseURL: "https://api.escuelajs.co/api/v1/",
 });
 
 axiosInstance.interceptors.request.use(
-    (config)=>{
+    async (config)=>{
+      
+        const session = await getServerSession(authOptions);
+        let token = "";
+        if (!!session) {
+          token = session.user.access_token
+        }
+        
         config.headers["Content-Type"] = "application/json";
-        config.headers.Authorization = "Bearer ";
+        config.headers.Authorization = `Bearer ${token}`;
         return config;
     },
     (error) => {

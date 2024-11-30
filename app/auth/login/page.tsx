@@ -106,6 +106,7 @@ export default function LogIn() {
           width={700}
           height={475}
           alt="Chic Haven"
+          priority
         />
       </div>
     </div>
