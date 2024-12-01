@@ -12,6 +12,14 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "i.imgur.com",
       },
+      {
+        protocol: "https",
+        hostname: "placeimg.com",
+      },
+      {
+        protocol: "https",
+        hostname: "api.lorem.space",
+      },
     ],
   },
 };
