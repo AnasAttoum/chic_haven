@@ -4,8 +4,10 @@ import { product } from "@/types/types";
 
 export default function GetMoreProducts({
   setProducts,
+  category,
 }: {
   setProducts: Dispatch<SetStateAction<product[]>>;
+  category: string;
 }) {
   const { ref, inView } = useInView();
   const [page, setPage] = useState(1);
@@ -22,13 +24,14 @@ export default function GetMoreProducts({
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ offset: offset, limit: 20 }),
+          body: JSON.stringify({ offset: offset, limit: 20, category: category }),
         });
         const moreProducts = await response.json();
         if (!moreProducts.length) setEndProducts(true);
-        if (response.ok) setProducts((prev) => {
-          return [...prev, ...moreProducts]
-        })
+        if (response.ok)
+          setProducts((prev) => {
+            return [...prev, ...moreProducts];
+          });
       })();
 
       // router.replace(`${pathname}?${params}`, { scroll: false });

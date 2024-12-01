@@ -3,9 +3,9 @@ import Image from 'next/image';
 import { category } from '@/types/types';
 import Link from 'next/link';
 
-export default function CardCategory({ category:{image, name} }: { category: category }) {
+export default function CardCategory({ category:{id,image, name} }: { category: category }) {
   return (
-    <Link href={`/products?category=${name.toLowerCase()}`} className="group relative">
+    <Link href={`/products?category=${id}`} className="group relative">
       <div className="group-hover:blur-sm z-0 transition-all">
         <Image
           src={image}
