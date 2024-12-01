@@ -4,6 +4,7 @@ import CardProduct from "@/components/CardProduct";
 import GetMoreProducts from "@/components/GetMoreProducts";
 import { product } from "@/types/types";
 import { useEffect, useState } from "react";
+import Loading from "../loading";
 
 export default function Page() {
 
@@ -24,13 +25,19 @@ export default function Page() {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center gap-5 p-5">
-        {products.map((product: product) => {
-          return <CardProduct key={product.id} product={product} />;
-        })}
-      </div>
+      {!products.length ? (
+        <Loading />
+      ) : (
+        <>
+          <div className="flex flex-wrap justify-center gap-5 p-5">
+            {products.map((product: product) => {
+              return <CardProduct key={product.id} product={product} />;
+            })}
+          </div>
 
-      <GetMoreProducts setProducts={setProducts} />
+          <GetMoreProducts setProducts={setProducts} />
+        </>
+      )}
     </>
   );
 }

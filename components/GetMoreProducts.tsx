@@ -8,7 +8,7 @@ export default function GetMoreProducts({
   setProducts: Dispatch<SetStateAction<product[]>>;
 }) {
   const { ref, inView } = useInView();
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [endProducts, setEndProducts] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,9 @@ export default function GetMoreProducts({
         });
         const moreProducts = await response.json();
         if (!moreProducts.length) setEndProducts(true);
-        if (response.ok && page!==0) setProducts((prev) => [...prev, ...moreProducts]);
+        if (response.ok) setProducts((prev) => {
+          return [...prev, ...moreProducts]
+        })
       })();
 
       // router.replace(`${pathname}?${params}`, { scroll: false });
