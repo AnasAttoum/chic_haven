@@ -5,7 +5,7 @@ import HeaderWrapper from "@/utils/HeaderWrapper";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./auth";
 import StoreProvider from "@/utils/StoreProvider";
-import { getUser } from "../lib/data/getUser";
+import { getUser } from "../lib/data/user";
 import StoreUser from "@/utils/StoreUser";
 
 

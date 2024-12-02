@@ -1,6 +1,6 @@
 import CardCategory from "@/components/CardCategory";
 import Title from "@/components/Title";
-import { getCategories } from "@/lib/data/getCategories";
+import { getCategories } from "@/lib/data/categories";
 import { category } from "@/types/types";
 
 export default async function page() {
