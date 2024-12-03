@@ -5,13 +5,29 @@ import { links } from "@/constants/data";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Box, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import DeleteDialog from "./DeleteDialog";
 import { useState } from "react";
+import Badge, { BadgeProps } from "@mui/material/Badge";
+import { styled } from "@mui/material/styles";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useSelector } from "react-redux";
+import { RootState } from "@/lib/store";
+
+const StyledBadge = styled(Badge)<BadgeProps>(() => ({
+  "& .MuiBadge-badge": {
+    right: -3,
+    top: 13,
+    border: "2px solid var(--hover)",
+    color: "var(--hover)",
+    padding: "0 4px",
+  },
+}));
 
 export default function Header() {
   const { data: auth, status } = useSession();
   const pathname = usePathname();
+  const cart = useSelector((state:RootState) => state.cart)
 
   const [open, setOpen] = useState(false);
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -53,6 +69,13 @@ export default function Header() {
                     </Link>
                   );
                 })}
+                <Link href={"/cart"}>
+                  <IconButton aria-label="cart">
+                    <StyledBadge badgeContent={cart.length}>
+                      <ShoppingCartIcon />
+                    </StyledBadge>
+                  </IconButton>
+                </Link>
                 <div onClick={handleOpenLogOutModal} className="btn">
                   Log Out
                 </div>
@@ -75,7 +98,7 @@ export default function Header() {
                 ></path>
               </svg>
             </>
-          ) }
+          )}
         </div>
       </div>
 
@@ -84,7 +107,9 @@ export default function Header() {
           <div className="flex gap-3 justify-center items-center m-5 px-10">
             <div className="text-2xl font-bold">
               <div
-                onClick={async()=>{await signOut()}}
+                onClick={async () => {
+                  await signOut();
+                }}
                 className={`${satisfy.className} antialiased text-2xl`}
               >
                 Chic Haven

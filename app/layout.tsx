@@ -7,6 +7,7 @@ import { authOptions } from "./auth";
 import StoreProvider from "@/utils/StoreProvider";
 import { getUser } from "../lib/data/user";
 import StoreUser from "@/utils/StoreUser";
+import InitCart from "@/utils/InitCart";
 
 
 export const metadata: Metadata = {
@@ -36,6 +37,7 @@ export default async function RootLayout({
         <body className={`${comfortaa.className} antialiased`}>
           {!!token && <HeaderWrapper />}
           {!!user && <StoreUser user={user} />}
+          <InitCart />
           {children}
         </body>
       </html>
