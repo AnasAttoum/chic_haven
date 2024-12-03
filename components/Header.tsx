@@ -46,7 +46,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="flex justify-between max-sm:px-5 items-center gap-10 px-16 py-5">
+      <div className="flex justify-between max-sm:px-5 items-center gap-10 px-10 md:px-16 py-5">
         <Link
           href={"/"}
           className={`${satisfy.className} antialiased text-2xl`}
@@ -69,37 +69,43 @@ export default function Header() {
                     </Link>
                   );
                 })}
-                <Link href={"/cart"}>
-                  <IconButton aria-label="cart">
-                    <StyledBadge badgeContent={cart.length}>
-                      <ShoppingCartIcon />
-                    </StyledBadge>
-                  </IconButton>
-                </Link>
-                <div onClick={handleOpenLogOutModal} className="btn">
-                  Log Out
-                </div>
               </div>
-              <svg
-                className="inline-block sm:hidden cursor-pointer"
-                onClick={toggleDrawer(true)}
-                xmlns="http://www.w3.org/2000/svg"
-                width="2em"
-                height="2em"
-                viewBox="0 0 32 32"
-              >
-                <path
-                  fill="none"
-                  stroke="black"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 8h22M5 16h22M5 24h22"
-                ></path>
-              </svg>
             </>
           )}
         </div>
+        <div style={status === "loading" ? { visibility: "hidden" } : {}}>
+          {auth && (
+            <div className="flex justify-center items-center gap-5 max-sm:hidden">
+              <Link href={"/cart"}>
+                <IconButton aria-label="cart">
+                  <StyledBadge badgeContent={cart.length}>
+                    <ShoppingCartIcon />
+                  </StyledBadge>
+                </IconButton>
+              </Link>
+              <div onClick={handleOpenLogOutModal} className="btn">
+                Log Out
+              </div>
+            </div>
+          )}
+        </div>
+      <svg
+        className="inline-block sm:hidden cursor-pointer"
+        onClick={toggleDrawer(true)}
+        xmlns="http://www.w3.org/2000/svg"
+        width="2em"
+        height="2em"
+        viewBox="0 0 32 32"
+      >
+        <path
+          fill="none"
+          stroke="black"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M5 8h22M5 16h22M5 24h22"
+        ></path>
+      </svg>
       </div>
 
       <Drawer anchor={"right"} open={open} onClose={toggleDrawer(false)}>

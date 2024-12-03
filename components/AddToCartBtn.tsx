@@ -22,21 +22,19 @@ export default function AddToCartBtn({ product, title="" }: { product: product, 
   };
   return (
     <div
-      className={`flex bg-[--primary] text-[.6rem] sm:text-sm cursor-pointer p-1 rounded-md text-white group 
-        ${!title ? "hover:bg-white" : "hover:bg-[--hover] flex justify-center w-32"}`}
+      className={`flex bg-[--primary] text-xs sm:text-sm cursor-pointer p-1 rounded-md text-white group 
+        ${!title ? "hover:bg-white sm:px-2" : "hover:bg-[--hover] flex justify-center w-32"}`}
     >
       {added ? (
         <DoneOutlineIcon
-          fontSize="small"
-          className={!title ? "group-hover:text-[--primary]" : ""}
+          className={!title ? "group-hover:text-[--primary] text-sm sm:text-base my-[2px]" : ""}
           onClick={(e) => e.preventDefault()}
         />
       ) : (
         <Tooltip title={!!title ? "" : "Add To Cart"}>
           <div onClick={handleAddToCart}>
             <AddShoppingCartIcon
-              fontSize="small"
-              className={!title ? "group-hover:text-[--primary]" : ""}
+              className={!title ? "group-hover:text-[--primary] text-sm sm:text-base" : ""}
             />
             {title}
           </div>

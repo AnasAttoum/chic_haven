@@ -23,7 +23,7 @@ export default async function page({
         <ProductImages title={product.title} images={product.images} />
 
         {/* Right */}
-        <div className="flex flex-col gap-5 w-full lg:w-1/2 p-5">
+        <div className="flex flex-col gap-5 w-full lg:w-1/2 p-5 lg:pe-16">
           <div className="text-lg font-extrabold">{product.title}</div>
           <div>
             <Link
