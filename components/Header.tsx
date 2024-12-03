@@ -89,23 +89,32 @@ export default function Header() {
             </div>
           )}
         </div>
-      <svg
-        className="inline-block sm:hidden cursor-pointer"
-        onClick={toggleDrawer(true)}
-        xmlns="http://www.w3.org/2000/svg"
-        width="2em"
-        height="2em"
-        viewBox="0 0 32 32"
-      >
-        <path
-          fill="none"
-          stroke="black"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M5 8h22M5 16h22M5 24h22"
-        ></path>
-      </svg>
+        <div className="flex items-center gap-3 sm:hidden">
+          <Link href={"/cart"}>
+            <IconButton aria-label="cart">
+              <StyledBadge badgeContent={cart.length}>
+                <ShoppingCartIcon />
+              </StyledBadge>
+            </IconButton>
+          </Link>
+          <svg
+            className="cursor-pointer"
+            onClick={toggleDrawer(true)}
+            xmlns="http://www.w3.org/2000/svg"
+            width="2em"
+            height="2em"
+            viewBox="0 0 32 32"
+          >
+            <path
+              fill="none"
+              stroke="black"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 8h22M5 16h22M5 24h22"
+            ></path>
+          </svg>
+        </div>
       </div>
 
       <Drawer anchor={"right"} open={open} onClose={toggleDrawer(false)}>
