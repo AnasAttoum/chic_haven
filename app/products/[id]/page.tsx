@@ -1,3 +1,4 @@
+import AddToCartBtn from "@/components/AddToCartBtn";
 import ProductImages from "@/components/ProductImages";
 import RelatedProducts from "@/components/RelatedProducts";
 import { getProduct } from "@/lib/data/products";
@@ -35,10 +36,14 @@ export default async function page({
           <div>$ {product.price}</div>
 
           <div className="text-justify">{product.description}</div>
+
+          <div className="flex">
+            <AddToCartBtn product={product} title="Add To Cart" />
+          </div>
         </div>
       </div>
 
-      <RelatedProducts id={product.id} categoryId={product.category.id}/>
+      <RelatedProducts id={product.id} categoryId={product.category.id} />
     </>
   );
 }
