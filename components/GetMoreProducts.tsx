@@ -5,9 +5,11 @@ import { product } from "@/types/types";
 export default function GetMoreProducts({
   setProducts,
   category,
+  title,
 }: {
   setProducts: Dispatch<SetStateAction<product[]>>;
   category: string;
+  title: string;
 }) {
   const { ref, inView } = useInView();
   const [page, setPage] = useState(1);
@@ -24,7 +26,12 @@ export default function GetMoreProducts({
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ offset: offset, limit: 20, category: category }),
+          body: JSON.stringify({
+            offset: offset,
+            limit: 20,
+            category: category,
+            title: title,
+          }),
         });
         const moreProducts = await response.json();
         if (!moreProducts.length) setEndProducts(true);

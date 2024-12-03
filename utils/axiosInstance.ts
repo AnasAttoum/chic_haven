@@ -3,7 +3,7 @@ import axios from "axios";
 import { getServerSession } from "next-auth";
 
 export const axiosInstance = axios.create({
-  baseURL: "https://api.escuelajs.co/api/v1/",
+  baseURL: process.env.BACKEND_URL,
 });
 
 axiosInstance.interceptors.request.use(
