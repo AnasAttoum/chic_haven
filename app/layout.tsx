@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { comfortaa } from "../utils/fonts";
 import HeaderWrapper from "@/utils/HeaderWrapper";
@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   keywords:
     "Chic Furniture, Modern Furniture, Stylish Home Decor, Contemporary Furniture Online, Chic Home Furniture, Elegant Furniture Designs, Designer Furniture, Affordable Chic Furniture, Chic, Haven",
   icons: "/chic_haven.svg",
+};
+
+export const viewport: Viewport = {
   themeColor: "#9787ff",
 };
 
