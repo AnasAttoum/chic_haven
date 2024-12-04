@@ -44,7 +44,7 @@ export default function Page() {
           <FilterProducts setTitle={setTitle} />
           {!products.length ? (
             <div className="flex flex-col justify-center items-center smallPage">
-              <div className="text-[--hover]">No Product Found</div>
+              <div className="text-[--hover]">No Products Found</div>
               <iframe src="/empty.svg" className="w-[50vw] h-[50vh]" />
             </div>
           ) : (

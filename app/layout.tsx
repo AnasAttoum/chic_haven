@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   keywords:
     "Chic Furniture, Modern Furniture, Stylish Home Decor, Contemporary Furniture Online, Chic Home Furniture, Elegant Furniture Designs, Designer Furniture, Affordable Chic Furniture, Chic, Haven",
   icons: "/chic_haven.svg",
+  themeColor: "#9787ff",
 };
 
 export default async function RootLayout({
