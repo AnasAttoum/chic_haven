@@ -79,7 +79,7 @@ export default function Header() {
               <Link href={"/cart"}>
                 <IconButton aria-label="cart">
                   <StyledBadge badgeContent={cart.length}>
-                    <ShoppingCartIcon />
+                    <ShoppingCartIcon sx={pathname === '/cart'? {color:'var(--primary)'} : {}}/>
                   </StyledBadge>
                 </IconButton>
               </Link>
@@ -93,7 +93,7 @@ export default function Header() {
           <Link href={"/cart"}>
             <IconButton aria-label="cart">
               <StyledBadge badgeContent={cart.length}>
-                <ShoppingCartIcon />
+                <ShoppingCartIcon sx={pathname === '/cart'? {color:'var(--primary)'} : {}}/>
               </StyledBadge>
             </IconButton>
           </Link>

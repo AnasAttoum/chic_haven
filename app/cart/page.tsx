@@ -41,7 +41,9 @@ export default function Page() {
           <Title title="My Cart" />
 
           <div className="grid grid-cols-7 font-extrabold text-[--primary] mb-10 text-center max-lg:text-xs max-lg:grid-cols-6">
-            <div className="lg:col-start-2 col-span-2 max-lg:col-span-3">Product</div>
+            <div className="lg:col-start-2 col-span-2 max-lg:col-span-3">
+              Product
+            </div>
             <div className="max-lg:hidden">Price</div>
             <div>Quantity</div>
             <div>Total</div>
@@ -77,7 +79,7 @@ export default function Page() {
                 <div className="max-lg:hidden">{product.price} $</div>
                 <div className="flex justify-center items-center gap-3 max-lg:gap-1">
                   <svg
-                    style={count<2?{visibility:'hidden'}:{}}
+                    style={count < 2 ? { visibility: "hidden" } : {}}
                     className="cursor-pointer"
                     onClick={(e) => {
                       e.preventDefault();
@@ -130,6 +132,18 @@ export default function Page() {
               </Link>
             );
           })}
+
+          <div className="flex justify-end p-10 max-lg:text-sm">
+            <div className="flex flex-col items-start gap-5 w-full sm:w-1/3">
+              <div>
+                <span className="text-[--hover] font-extrabold">Cart Totals :</span>{" "}
+                {cart.reduce((acc,{product:{price},count})=>{
+                  return acc + ( price * count )
+                },0)} $
+              </div>
+              <Link href="/checkout" className="btn !py-3">Proceed To Checkout</Link>
+            </div>
+          </div>
         </>
       )}
 
