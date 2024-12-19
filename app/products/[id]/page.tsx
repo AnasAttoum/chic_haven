@@ -2,8 +2,22 @@ import AddToCartBtn from "@/components/AddToCartBtn";
 import ProductImages from "@/components/ProductImages";
 import RelatedProducts from "@/components/RelatedProducts";
 import { getProduct } from "@/lib/data/products";
+import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const id = (await params).id;
+  const product = await getProduct(id);
+
+  return {
+    title: product.title,
+  };
+}
 
 export default async function page({
   params,

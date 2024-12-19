@@ -2,10 +2,15 @@ import CardCategory from "@/components/CardCategory";
 import Title from "@/components/Title";
 import { getCategories } from "@/lib/data/categories";
 import { category } from "@/types/types";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Categories",
+};
 
 export default async function page() {
 
-    const categories = await getCategories()
+  const categories = await getCategories()
 
   return (
     <>
